@@ -1,0 +1,79 @@
+﻿<Window x:Class="Organization_Akhmarov.WPF.ProductDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Товар" Height="620" Width="550"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}" Foreground="{StaticResource ForegroundBrush}">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="156"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Text="Наименование:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="24"/>
+        <TextBox x:Name="TxtName" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Padding="8,5"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Ед. измерения:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="27"/>
+        <TextBox x:Name="TxtUnit" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" Text="шт" Padding="8,5"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Категория:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="24"/>
+        <ComboBox x:Name="CmbCategory" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" 
+                  DisplayMemberPath="Name" SelectedValuePath="Id" Padding="8,5"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Производитель:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="26"/>
+        <ComboBox x:Name="CmbManufacturer" Grid.Row="3" Grid.Column="1" Margin="5,5,5,5" 
+                  DisplayMemberPath="Name" SelectedValuePath="Id" Padding="8,5"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Поставщик:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="25"/>
+        <ComboBox x:Name="CmbSupplier" Grid.Row="4" Grid.Column="1" Margin="5,5,5,5" 
+                  DisplayMemberPath="Name" SelectedValuePath="Id" Padding="8,5"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Цена (₽):" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="38" RenderTransformOrigin="0.496,0.885"/>
+        <TextBox x:Name="TxtPrice" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5" Padding="8,5"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Скидка (%):" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="29"/>
+        <TextBox x:Name="TxtDiscount" Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Text="0" Padding="8,5"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Остаток:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" Margin="5,0,5,0" Height="26"/>
+        <TextBox x:Name="TxtStockQuantity" Grid.Row="7" Grid.Column="1" Margin="5,5,5,5" Text="0" Padding="8,5"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Описание:" FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Top" Margin="5,5,5,0" Height="24"/>
+        <TextBox x:Name="TxtDescription" Grid.Row="8" Grid.Column="1" Margin="5,5,5,5" TextWrapping="Wrap" AcceptsReturn="True" Padding="8,5"/>
+
+        <Separator Grid.Row="9" Grid.ColumnSpan="2" Margin="0,15,0,15" 
+                   Background="{StaticResource BorderBrush}"/>
+
+        <StackPanel Grid.Row="10" Orientation="Horizontal" 
+                    HorizontalAlignment="Left" Margin="0,104,0,0" Grid.Column="1" Grid.RowSpan="2" Width="278">
+            <Button x:Name="BtnOk" Content="Сохранить" Width="127" Height="56"
+                    Margin="0,0,10,0" Click="BtnOk_Click" IsDefault="True"/>
+            <Button x:Name="BtnCancel" Content="Отмена" Width="124" Height="59"
+                    Click="BtnCancel_Click" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
