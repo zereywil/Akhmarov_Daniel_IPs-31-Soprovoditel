@@ -23,7 +23,6 @@ namespace Organization_Akhmarov.Data.Services{
         public void Add(Organization entity){
             _organizations.Add(entity);
         }
-
         public void Update(Organization entity){
             var index = _organizations.FindIndex(o => o.Id == entity.Id);
             if (index != -1)

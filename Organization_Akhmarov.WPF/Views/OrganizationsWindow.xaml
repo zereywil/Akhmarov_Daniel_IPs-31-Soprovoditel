@@ -9,26 +9,27 @@
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок -->
         <TextBlock Grid.Row="0" Text="Управление складом" FontSize="24" FontWeight="Bold" 
                    HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-        <!-- Кнопки управления (как на Рис.1) -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
-            <Button x:Name="BtnAdd" Content="Добавить" Width="100" Click="BtnAdd_Click"/>
-            <Button x:Name="BtnEdit" Content="Изменить" Width="100" Click="BtnEdit_Click"/>
-            <Button x:Name="BtnDelete" Content="Удалить" Width="100" Click="BtnDelete_Click"/>
-        </StackPanel>
-
-        <!-- Список организаций (как на Рис.1) -->
-        <ListView x:Name="LvOrganizations" Grid.Row="2" 
+        <ListView x:Name="LvOrganizations" Grid.Row="1" 
                   SelectionChanged="LvOrganizations_SelectionChanged"
-                  MouseDoubleClick="LvOrganizations_MouseDoubleClick">
+                  MouseDoubleClick="LvOrganizations_MouseDoubleClick"
+                  ContextMenuOpening="LvOrganizations_ContextMenuOpening"
+                  PreviewMouseRightButtonDown="LvOrganizations_PreviewMouseRightButtonDown">
+
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Click="BtnAdd_Click"/>
+                    <MenuItem Header="Изменить" Click="BtnEdit_Click"/>
+                    <MenuItem Header="Удалить"   Click="BtnDelete_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Код" Width="80" DisplayMemberBinding="{Binding Id}"/>
@@ -38,8 +39,7 @@
             </ListView.View>
         </ListView>
 
-        <!-- Кнопка выбора (как на Рис.1 - внизу) -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
             <Button x:Name="BtnSelect" Content="Выбрать" Width="155" Click="BtnSelect_Click"/>
             <Button x:Name="BtnExit" Content="Выход" Width="134" Click="BtnExit_Click" />
         </StackPanel>
